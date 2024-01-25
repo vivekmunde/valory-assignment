@@ -1,7 +1,13 @@
+import ConfigProvider from "antd/lib/config-provider";
+import Typography from "antd/lib/typography";
 import "./App.css";
 
 function App() {
-  return <h1>Velory Assignment</h1>;
+  return (
+    <ConfigProvider>
+      <Typography.Title level={1}>Velory Assignment</Typography.Title>
+    </ConfigProvider>
+  );
 }
 
 export default App;
