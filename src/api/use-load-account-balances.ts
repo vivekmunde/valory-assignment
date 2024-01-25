@@ -28,6 +28,10 @@ const useLoadAccountBalances = (): {
   onReload: (accounts: string[]) => void;
 } => {
   const erc20Token = useGetState(accountsCell, (state) => state.erc20Token);
+  const currentAccountBalances = useGetState(
+    accountsCell,
+    (state) => state.balances
+  );
   const setAccounts = useSetState(accountsCell);
   const getWeb3Instance = useGetWeb3Instance();
 
@@ -53,7 +57,7 @@ const useLoadAccountBalances = (): {
             acc[account] = balances[index];
             return acc;
           },
-          {}
+          currentAccountBalances
         );
 
         setAccounts((current) => ({
