@@ -1,27 +1,36 @@
+import { CheckOutlined } from "@ant-design/icons";
+import Card from "antd/lib/card";
 import Result from "antd/lib/result";
+import Space from "antd/lib/space";
 import React from "react";
 
-const EthereumDoesNotExist: React.FC = () => {
+const AccountNotExist: React.FC = () => {
   return (
     <Result
       status="info"
-      title="Account not found!"
+      title="No account found!"
       subTitle={
-        <div>
-          <div>Please check following:</div>
-          <div>
-            <ul>
-              <li>You are singined into MetaMask browser extension.</li>
-              <li>
-                You have allowed this application to connect to the accounts in
-                MetaMask.
-              </li>
-            </ul>
-          </div>
+        <div style={{ textAlign: "left" }}>
+          <Card size="small">
+            <Space direction="vertical" size="small">
+              <div>Please check following:</div>
+              <Space direction="horizontal" size="small">
+                <CheckOutlined />
+                <span>You are singined into MetaMask browser extension.</span>
+              </Space>
+              <Space direction="horizontal" size="small">
+                <CheckOutlined />
+                <span>
+                  You have allowed this application to connect to the accounts
+                  in MetaMask.
+                </span>
+              </Space>
+            </Space>
+          </Card>
         </div>
       }
     />
   );
 };
 
-export default EthereumDoesNotExist;
+export default AccountNotExist;
