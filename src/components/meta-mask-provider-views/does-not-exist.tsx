@@ -5,7 +5,19 @@ const DoesNotExist: React.FC = () => {
     <Result
       status="error"
       title="MetaMask not found!"
-      subTitle="Please check the MetaMask extension has been installed and connected on the browser."
+      subTitle={
+        <div>
+          <div>
+            Please check if the MetaMask browser extension has been installed
+            and connected.
+          </div>
+          Form more information, refer the documentation at{" "}
+          <a href="https://metamask.io/" target="_blank">
+            metamask.io
+          </a>
+          .
+        </div>
+      }
     />
   );
 };

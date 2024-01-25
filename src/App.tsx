@@ -24,6 +24,9 @@ function App() {
             <MetaMaskProvider.Exists>
               <div>Exists</div>
             </MetaMaskProvider.Exists>
+            <MetaMaskProvider.DoesNotExist>
+              <MetaMaskProviderViews.DoesNotExist />
+            </MetaMaskProvider.DoesNotExist>
           </MetaMaskProvider>
         </Content>
       </Container>

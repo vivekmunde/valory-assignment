@@ -55,7 +55,7 @@ class MetaMaskProvider extends React.Component<{
   static Unknown: typeof ProviderStatusUnknown;
   static Checking: typeof ProviderStatusChecking;
   static Exists: typeof ProviderStatusExists;
-  static DoesNotExists: typeof ProviderStatusDoesNotExist;
+  static DoesNotExist: typeof ProviderStatusDoesNotExist;
   static Error: typeof ProviderStatusError;
 
   render() {
@@ -68,7 +68,7 @@ class MetaMaskProvider extends React.Component<{
 MetaMaskProvider.Unknown = ProviderStatusUnknown;
 MetaMaskProvider.Checking = ProviderStatusChecking;
 MetaMaskProvider.Exists = ProviderStatusExists;
-MetaMaskProvider.DoesNotExists = ProviderStatusDoesNotExist;
+MetaMaskProvider.DoesNotExist = ProviderStatusDoesNotExist;
 MetaMaskProvider.Error = ProviderStatusError;
 
 export default MetaMaskProvider;
