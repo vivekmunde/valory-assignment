@@ -31,6 +31,7 @@ const AccountList: React.FC = () => {
                   <Account account={account} />
                 </List.Item>
               )}
+              rowKey={(it: string) => it}
             />
           </If.False>
         </If>
