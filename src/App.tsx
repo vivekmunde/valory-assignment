@@ -1,12 +1,11 @@
-import ConfigProvider from "antd/lib/config-provider";
 import Typography from "antd/lib/typography";
-import "./App.css";
+import ThemeProvider from "./components/theme-provider";
 
 function App() {
   return (
-    <ConfigProvider>
+    <ThemeProvider>
       <Typography.Title level={1}>Velory Assignment</Typography.Title>
-    </ConfigProvider>
+    </ThemeProvider>
   );
 }
 
