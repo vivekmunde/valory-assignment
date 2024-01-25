@@ -1,4 +1,4 @@
-export type TSatus =
+export type TStatus =
   | "unknown"
   | "checking"
   | "exists"
@@ -6,6 +6,6 @@ export type TSatus =
   | "error";
 
 export type TProviderContext = {
-  status: TSatus;
+  status: TStatus;
   error?: string;
 };
