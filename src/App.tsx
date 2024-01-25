@@ -14,7 +14,7 @@ function App() {
     <ThemeProvider>
       <Container>
         <Header>
-          <Title>Velory Assignment</Title>
+          <Title>Valory Assignment</Title>
         </Header>
         <Content>
           <MetaMaskProvider>
