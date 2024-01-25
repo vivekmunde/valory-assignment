@@ -6,7 +6,7 @@ const Checking: React.FC = () => {
     <Result
       icon={<LoadingOutlined />}
       status="info"
-      title="Checking MetaMask!"
+      subTitle="Checking MetaMask!"
     />
   );
 };

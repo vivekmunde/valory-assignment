@@ -15,7 +15,7 @@ const Balance: React.FC<{ account: string }> = ({ account }) => {
     <Space direction="horizontal" size="small">
       <Typography.Text type="secondary">Balance:</Typography.Text>
       <Typography.Text>
-        {`${parseInt(balance ?? "0") / 1000000000000000000} MDS`}
+        {`${(parseInt(balance ?? "0") / 1000000000000000000).toFixed(2)} MDS`}
       </Typography.Text>
     </Space>
   );
