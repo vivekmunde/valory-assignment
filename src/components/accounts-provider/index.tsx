@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import useLoadAccounts from "./use-load-accounts";
+import useLoadAccounts from "../../api/use-load-accounts";
 
 const AccountsProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

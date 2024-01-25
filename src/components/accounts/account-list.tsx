@@ -26,9 +26,9 @@ const AccountList: React.FC = () => {
               bordered={false}
               header={undefined}
               dataSource={accounts}
-              renderItem={(address) => (
+              renderItem={(account) => (
                 <List.Item>
-                  <Account address={address} />
+                  <Account account={account} />
                 </List.Item>
               )}
             />

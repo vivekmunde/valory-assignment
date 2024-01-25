@@ -3,8 +3,8 @@ import Button from "antd/lib/button";
 import Space from "antd/lib/space";
 import React from "react";
 import { useGetState } from "recell";
+import useLoadAccounts from "../../api/use-load-accounts";
 import accountsCell from "../../cells/accounts";
-import useLoadAccounts from "../accounts-provider/use-load-accounts";
 import If from "../if";
 import ReloadingIcon from "./reloading-icon";
 

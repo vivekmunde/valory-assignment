@@ -1,10 +1,12 @@
 import { useSetState } from "recell";
-import accountsCell from "../../cells/accounts";
-import { useGetWeb3Instance } from "../web3-provider";
+import accountsCell from "../cells/accounts";
+import { useGetWeb3Instance } from "../components/web3-provider";
+import useLoadAccountBalances from "./use-load-account-balances";
 
 const useLoadAccounts = (): { onLoad: () => void; onReload: () => void } => {
   const setAccounts = useSetState(accountsCell);
   const getWeb3Instance = useGetWeb3Instance();
+  const { onLoad: onLoadAccountBalances } = useLoadAccountBalances();
 
   const load = async (isReload: boolean) => {
     try {
@@ -12,6 +14,7 @@ const useLoadAccounts = (): { onLoad: () => void; onReload: () => void } => {
 
       if (web3) {
         setAccounts((current) => ({
+          ...current,
           loading: !isReload,
           reloading: isReload,
           accounts: current.accounts,
@@ -20,7 +23,10 @@ const useLoadAccounts = (): { onLoad: () => void; onReload: () => void } => {
 
         const accounts = await web3.eth.getAccounts();
 
-        setAccounts(() => ({
+        onLoadAccountBalances(accounts);
+
+        setAccounts((current) => ({
+          ...current,
           loading: false,
           reloading: false,
           accounts: accounts ?? [],
@@ -28,9 +34,9 @@ const useLoadAccounts = (): { onLoad: () => void; onReload: () => void } => {
       }
     } catch (error: any) {
       setAccounts((current) => ({
+        ...current,
         loading: false,
         reloading: false,
-        accounts: current.accounts,
         error:
           error?.message ??
           "Some error occurred while connecting to account(s).",
