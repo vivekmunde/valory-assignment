@@ -8,6 +8,7 @@ export type TState = {
   reloadingBalances: boolean;
   balances: Record<string, string>;
   error?: string | undefined;
+  erc20Token: string;
 };
 
 const accountsCell = createCell<TState>({
@@ -17,6 +18,7 @@ const accountsCell = createCell<TState>({
   loadingBalances: false,
   reloadingBalances: false,
   balances: {},
+  erc20Token: "0x945Cb4cE285D9916fDD3a27194ab4FA99e693338",
 });
 
 export default accountsCell;

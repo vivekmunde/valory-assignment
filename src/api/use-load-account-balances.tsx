@@ -1,8 +1,6 @@
-import { useSetState } from "recell";
+import { useGetState, useSetState } from "recell";
 import accountsCell from "../cells/accounts";
 import { useGetWeb3Instance } from "../components/web3-provider";
-
-const tokenAddress = "0x945Cb4cE285D9916fDD3a27194ab4FA99e693338";
 
 const tokenABI = [
   {
@@ -29,6 +27,7 @@ const useLoadAccountBalances = (): {
   onLoad: (accounts: string[]) => void;
   onReload: (accounts: string[]) => void;
 } => {
+  const erc20Token = useGetState(accountsCell, (state) => state.erc20Token);
   const setAccounts = useSetState(accountsCell);
   const getWeb3Instance = useGetWeb3Instance();
 
@@ -43,7 +42,7 @@ const useLoadAccountBalances = (): {
           reloadingBalances: isReload,
         }));
 
-        const tokenInst = new web3.eth.Contract(tokenABI, tokenAddress);
+        const tokenInst = new web3.eth.Contract(tokenABI, erc20Token);
 
         const balances = await Promise.all<string>(
           accounts.map((account) => tokenInst.methods.balanceOf(account).call())
