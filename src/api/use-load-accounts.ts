@@ -23,14 +23,14 @@ const useLoadAccounts = (): { onLoad: () => void; onReload: () => void } => {
 
         const accounts = await web3.eth.getAccounts();
 
-        onLoadAccountBalances(accounts);
-
         setAccounts((current) => ({
           ...current,
           loading: false,
           reloading: false,
           accounts: accounts ?? [],
         }));
+
+        onLoadAccountBalances(accounts);
       }
     } catch (error: any) {
       setAccounts((current) => ({
