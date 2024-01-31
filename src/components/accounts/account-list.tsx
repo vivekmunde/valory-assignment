@@ -9,7 +9,13 @@ import LoadingAccounts from "./loading-accounts";
 
 const AccountList: React.FC = () => {
   const loading = useGetState(accountsCell, (state) => state.loading);
-  const accounts = useGetState(accountsCell, (state) => state.accounts);
+  const accounts = useGetState(
+    accountsCell,
+    (state) => state.accounts,
+    (curr, prev) => {
+      return curr.join("") == prev.join("");
+    }
+  );
 
   return (
     <If condition={loading}>
